@@ -1,22 +1,22 @@
 name: deploy-container
 
-on: 
-  push: 
+on:
+  push:
     branches:
-     - main
+      - main
     paths:
-     - 'packages/container/**'
+      - "packages/container/**"
 
 defaults:
-  run: 
+  run:
     working-directory: packages/container
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps: 
-      - users: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
 
