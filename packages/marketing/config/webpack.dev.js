@@ -26,6 +26,17 @@ const devConfig = {
       shared: packageJson.dependencies,
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]"
+        },
+      },
+    ],
+  },
 };
 
 module.exports = merge(commonConfig, devConfig);

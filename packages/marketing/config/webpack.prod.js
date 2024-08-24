@@ -8,7 +8,7 @@ const prodConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: '/marketing/latest/'
+    publicPath: "/marketing/latest/",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -23,6 +23,19 @@ const prodConfig = {
       shared: packageJson.dependencies,
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "assets/",
+          publicPath: "/marketing/latest/assets/",
+        },
+      },
+    ],
+  },
 };
 
 module.exports = merge(commonConfig, prodConfig);
