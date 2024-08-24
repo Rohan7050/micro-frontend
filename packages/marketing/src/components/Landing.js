@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import MaterialLink from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
+import myImage from '../../assets/img1.jpg';
 
 function Copyright() {
   return (
@@ -65,7 +66,8 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function Album() {
   const classes = useStyles();
-  const path = process.env.NODE_ENV === 'production' ? 'marketing/latest/assets' : 'assets'
+  const path = 'assets'; // process.env.NODE_ENV === 'production' ? 'marketing/latest/assets' : 'assets'
+  console.log(window.basePath)
   return (
     <React.Fragment>
       <main>
@@ -119,7 +121,7 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={ path + "/img2.jpg"}
+                    image={ myImage}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
