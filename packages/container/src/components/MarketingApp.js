@@ -1,10 +1,11 @@
 import { mount } from "marketing/MarketingApp";
 import React, { useRef, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 export default () => {
   const ref = useRef(null);
   const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     const { onParentNavigation } = mount(ref.current, {
@@ -15,12 +16,9 @@ export default () => {
         }
       },
     });
+    onParentNavigation(history.location)
+    history.listen(onParentNavigation);
+  }, [location]);
 
-    history.listen((a) => {
-      console.log('listening')
-      onParentNavigation(a);
-    });
-  }, []);
-  
   return <div ref={ref} />;
 };
