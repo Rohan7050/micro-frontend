@@ -66,8 +66,7 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function Album() {
   const classes = useStyles();
-  const path = 'assets'; // process.env.NODE_ENV === 'production' ? 'marketing/latest/assets' : 'assets'
-  console.log(window.basePath)
+  const path = 'assets';
   return (
     <React.Fragment>
       <main>

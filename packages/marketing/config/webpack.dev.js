@@ -9,7 +9,7 @@ const devConfig = {
   devServer: {
     port: 8081,
     historyApiFallback: {
-      index: "index.html",
+      historyApiFallback: true,
     },
   },
   plugins: [
@@ -32,7 +32,7 @@ const devConfig = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         loader: "file-loader",
         options: {
-          name: "[name].[ext]"
+          name: "[name].[ext]",
         },
       },
     ],
